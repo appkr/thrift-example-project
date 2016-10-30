@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        factory(App\Post::class, 100)->create();
+        $this->command->info('테스트를 위해 100개의 포스트를 만들었습니다.');
     }
 }

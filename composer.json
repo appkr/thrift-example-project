@@ -8,12 +8,20 @@
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:appkr/thrift-example-idl.git"
+        }
+    ],
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.0",
         "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*"
+        "symfony/dom-crawler": "3.1.*",
+        "apache/thrift": "dev-master",
+        "appkr/thrift-example-idl": "dev-master"
     },
     "autoload": {
         "classmap": [

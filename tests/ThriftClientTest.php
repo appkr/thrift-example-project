@@ -1,6 +1,5 @@
 <?php
 
-use App\Post as EloquentPost;
 use Appkr\Thrift\Post\Post as ThriftPost;
 use Appkr\Thrift\Post\PostServiceClient;
 use Appkr\Thrift\Post\QueryFilter;
@@ -28,8 +27,6 @@ class ThriftClientTest extends TestCase
         $protocol = new TJSONProtocol($transport);
 
         $this->client = new PostServiceClient($protocol);
-
-        factory(EloquentPost::class, 20)->create();
     }
 
     public function testAll()
@@ -62,8 +59,10 @@ class ThriftClientTest extends TestCase
     public function testStore()
     {
         $response = $this->client->store(
-            'foo',
-            'Lorem content'
+            new ThriftPost([
+                'title' => 'foo',
+                'content' => 'Lorem content'
+            ])
         );
 
         print_r($response);

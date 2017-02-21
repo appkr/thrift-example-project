@@ -6,7 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.*"
+        "laravel/framework": "5.3.*",
+        "barryvdh/laravel-cors": "^0.8.6"
     },
     "repositories": [
         {
@@ -21,7 +22,7 @@
         "symfony/css-selector": "3.1.*",
         "symfony/dom-crawler": "3.1.*",
         "apache/thrift": "dev-master",
-        "appkr/thrift-example-idl": "dev-master"
+        "appkr/thrift-example-idl": "dev-js-addition"
     },
     "autoload": {
         "classmap": [

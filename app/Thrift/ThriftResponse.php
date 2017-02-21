@@ -42,7 +42,7 @@ class ThriftResponse
         $content = $writeTransport->getBuffer();
 
         return response($content)
-            ->header('Content-Type', 'application/x-thrift');
-//            ->header('Access-Control-Allow-Origin', $request->header('origin'));
+            ->header('Content-Type', 'application/x-thrift')
+            ->header('Access-Control-Allow-Origin', $request->header('origin'));
     }
 }

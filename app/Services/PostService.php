@@ -59,20 +59,16 @@ class PostService implements PostServiceIf
     /**
      * 새 포스트를 만듭니다.
      *
-     * @param string $title
-     * @param string $content
-     * @return \Appkr\Thrift\Post\Post Post 엔티티
-     *
-     * @throws \Appkr\Thrift\Errors\UserException
-     * @throws \Appkr\Thrift\Errors\SystemException
+     * @param ThriftPost $thriftPost
+     * @return ThriftPost Post 엔티티
      */
-    public function store($title, $content)
+    public function store(ThriftPost $thriftPost)
     {
-        $post = new EloquentPost;
-        $post->title = $title;
-        $post->content = $content;
-        $post->save();
+        $eloquentPost = EloquentPost::create([
+            'title' => $thriftPost->title,
+            'content' => $thriftPost->content,
+        ]);
 
-        return new ThriftPost($post->toArray());
+        return new ThriftPost($eloquentPost->toArray());
     }
 }

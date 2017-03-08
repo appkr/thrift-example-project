@@ -26,7 +26,8 @@ class PostService implements PostServiceIf
         $builder = new EloquentPost;
 
         if ($qf->keyword) {
-            // 고급 DB를 사용한다면 Full text BOOLEAN MATCH 사용할 수 있음
+            // 고급 DB를 사용한다면 Full text BOOLEAN MATCH 사용할 수 있습니다.
+            // 이 프로젝트는 Proof of Concept이므로 LIKE 쿼리를 이용합니다.
             $builder->where('title', 'like', "%{$qf->keyword}%");
         }
 

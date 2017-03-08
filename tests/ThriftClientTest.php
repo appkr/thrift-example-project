@@ -4,6 +4,8 @@ use Appkr\Thrift\Post\Post as ThriftPost;
 use Appkr\Thrift\Post\PostServiceClient;
 use Appkr\Thrift\Post\QueryFilter;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Thrift\Protocol\TBinaryProtocol;
+use Thrift\Protocol\TCompactProtocol;
 use Thrift\Protocol\TJSONProtocol;
 use Thrift\Transport\THttpClient;
 
@@ -22,9 +24,13 @@ class ThriftClientTest extends TestCase
             'localhost',
             '8000',
             'api/posts'
+//            'api/posts/binary'
+//            'api/posts/compact'
         );
 
         $protocol = new TJSONProtocol($transport);
+//        $protocol = new TBinaryProtocol($transport);
+//        $protocol = new TCompactProtocol($transport);
 
         $this->client = new PostServiceClient($protocol);
     }

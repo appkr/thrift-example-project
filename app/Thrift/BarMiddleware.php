@@ -2,6 +2,8 @@
 
 namespace App\Thrift;
 
+use Log;
+
 class BarMiddleware extends ThriftMiddleware
 {
     /**
@@ -9,8 +11,10 @@ class BarMiddleware extends ThriftMiddleware
      */
     public function handle($service, $method, $arguments)
     {
-        // Handle the request
-        \Log::info('handling thrift request', [func_get_args(), __METHOD__]);
+        Log::info(
+            sprintf('handling_thrift_request_at %s:%d:' . PHP_EOL, __CLASS__, __LINE__),
+            func_get_args()
+        );
 
         return $this->next($service, $method, $arguments);
     }

@@ -12,6 +12,13 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+    /**
+     * Thrift 요청을 처리하고 응답합니다.
+     *
+     * @param Request $request
+     * @param string $format
+     * @return mixed
+     */
     public function handle(Request $request, $format = 'json')
     {
         // 체인을 만듭니다. 사용법은 데코레이터 패턴과 비슷합니다.
